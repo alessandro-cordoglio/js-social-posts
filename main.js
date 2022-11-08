@@ -17,7 +17,7 @@ BONUS
 /* VARIABLES */
 const postContainer= document.querySelector("#container")
 const idArray=[]
-
+let clicked=false
 //array post
 const posts = [
     {
@@ -99,15 +99,21 @@ for( let i=0; i<posts.length; i++){
         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
         <span class="like-button__label">Mi Piace</span>
         </a>`
-    postList.querySelector("#like-counter-1").innerHTML= post.likes
+    postList.querySelector(".js-likes-counter").innerHTML= post.likes
+    postList.querySelector(".js-likes-counter").id=`like-counter-${post.id}`
     const likeBtn= postList.querySelector(".likes__cta")
     const liked= postList.querySelector("a")
     const likedId=liked.getAttribute("data-postid")
     postContainer.append(postList)
-    console.log(likedId)
     likeBtn.addEventListener("click", function(){     
         console.log(this) 
         liked.classList.toggle("like-button--liked")
+        idArray.push(likedId)
+        if (idArray.includes(likedId)) {
+            post.likes++
+            idArray.splice(likedId)
+        }
+        console.log(idArray)
     })
    
 }
