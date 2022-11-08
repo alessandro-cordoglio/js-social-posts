@@ -105,8 +105,10 @@ for( let i=0; i<posts.length; i++){
 
     likeBtn.addEventListener("click", function(){     
         console.log(this)
-        /* const liked= document.querySelector(".js-like-button")
-        liked.classList.toggle("like-button--liked") */
+            const liked= document.querySelector("a")
+            const likedId=liked.getAttribute("data-postid")
+            console.log(likedId)
+        /* liked.classList.toggle("like-button--liked") */
     })
    
 }
