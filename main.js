@@ -101,14 +101,13 @@ for( let i=0; i<posts.length; i++){
         </a>`
     postList.querySelector("#like-counter-1").innerHTML= post.likes
     const likeBtn= postList.querySelector(".likes__cta")
+    const liked= postList.querySelector("a")
+    const likedId=liked.getAttribute("data-postid")
     postContainer.append(postList)
-
+    console.log(likedId)
     likeBtn.addEventListener("click", function(){     
-        console.log(this)
-            const liked= document.querySelector("a")
-            const likedId=liked.getAttribute("data-postid")
-            console.log(likedId)
-        /* liked.classList.toggle("like-button--liked") */
+        console.log(this) 
+        liked.classList.toggle("like-button--liked")
     })
    
 }
