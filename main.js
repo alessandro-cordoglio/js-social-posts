@@ -73,8 +73,23 @@ const posts = [
 
 for( let i=0; i<posts.length; i++){
     const post= posts[i]
+    console.log(post)
     const postList= document.getElementById("social-template").content.cloneNode(true)
-    postList.querySelector(".post-meta__icon").innerHTML=`<img class="profile-pic" src="${post.image}" alt="${post.name}"> `
+    //img
+    postList.querySelector(".post-meta__icon").innerHTML=`<img class="profile-pic" src="${post.author.image}" alt="${post.author.name}">`
+    if (post.author.image==null) {
+        postList.querySelector(".post-meta__icon").innerHTML=""
+    }
+    //nome utente
+    postList.querySelector(".post-meta__author").innerHTML=post.author.name
+    //data
+    postList.querySelector(".post-meta__time").innerHTML=post.created
+    //content
+    postList.querySelector(".post__text").innerHTML=post.content
+    //media
+    postList.querySelector(".post__image").innerHTML= `<img src="${post.media}" alt="">`
+    //likes
+    postList.querySelector("#like-counter-1").innerHTML= post.likes
     postContainer.append(postList)
     
 }
