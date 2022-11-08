@@ -11,8 +11,14 @@ BONUS
 2. Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
 3. Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone. */
 
-//array post
+/* FUNCTIONS */
+
+
+/* VARIABLES */
 const postContainer= document.querySelector("#container")
+const idArray=[]
+
+//array post
 const posts = [
     {
         "id": 1,
@@ -73,7 +79,6 @@ const posts = [
 
 for( let i=0; i<posts.length; i++){
     const post= posts[i]
-    console.log(post)
     const postList= document.getElementById("social-template").content.cloneNode(true)
     //img
     postList.querySelector(".post-meta__icon").innerHTML=`<img class="profile-pic" src="${post.author.image}" alt="${post.author.name}">`
@@ -90,6 +95,13 @@ for( let i=0; i<posts.length; i++){
     postList.querySelector(".post__image").innerHTML= `<img src="${post.media}" alt="">`
     //likes
     postList.querySelector("#like-counter-1").innerHTML= post.likes
+    const likeBtn= postList.querySelector(".likes__cta")
+    likeBtn.addEventListener("click", function(){
+        const clickbtn= document.querySelector(".js-like-button")
+        clickbtn.classList.toggle('like-button--liked');
+    })
     postContainer.append(postList)
-    
+  
 }
+
+    
