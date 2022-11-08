@@ -100,11 +100,13 @@ for( let i=0; i<posts.length; i++){
         <span class="like-button__label">Mi Piace</span>
         </a>`
     postList.querySelector("#like-counter-1").innerHTML= post.likes
-    const likeBtn= postList.querySelectorAll(".likes__cta")
+    const likeBtn= postList.querySelector(".likes__cta")
     postContainer.append(postList)
 
-    likeBtn[0].addEventListener("click", function(){     
+    likeBtn.addEventListener("click", function(){     
         console.log(this)
+        /* const liked= document.querySelector(".js-like-button")
+        liked.classList.toggle("like-button--liked") */
     })
    
 }
