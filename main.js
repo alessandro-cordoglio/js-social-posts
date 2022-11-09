@@ -105,16 +105,11 @@ for( let i=0; i<posts.length; i++){
     const liked= postList.querySelector("a")
     const likedId=liked.getAttribute("data-postid")
     postContainer.append(postList)
-    likeBtn.addEventListener("click", function(){     
+    likeBtn.addEventListener("click", function(){    
         console.log(this) 
-        liked.classList.toggle("like-button--liked")
-        idArray.push(likedId)
-        if (idArray.includes(likedId)) {
-            post.likes++
-            idArray.splice(likedId)
-        }
+        liked.classList.toggle("like-button--liked") 
         console.log(idArray)
     })
-   
+    
 }
 
