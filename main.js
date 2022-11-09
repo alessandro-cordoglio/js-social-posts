@@ -97,14 +97,15 @@ for( let i=0; i<posts.length; i++){
     postList.querySelector(".js-like-button").setAttribute('data-postid', post.id)
     postList.querySelector(".js-likes-counter").innerHTML= post.likes
     postList.querySelector(".js-likes-counter").id=`like-counter-${post.id}`
+
+    const likeBtn= postList.querySelector(".js-like-button")
     
-    const likeBtn= postList.querySelector(".likes__cta")
-    const liked= postList.querySelector("a")
-    const likedId=liked.getAttribute("data-postid")
     postContainer.append(postList)
     likeBtn.addEventListener("click", function(){    
         console.log(this) 
-        liked.classList.toggle("like-button--liked") 
+        likeBtn.classList.toggle("like-button--liked") 
+        const likedId=this.getAttribute("data-postid")
+        const postLikes= document.querySelector(`like-counter-${post.id}`)
         console.log(idArray)
     })
     
