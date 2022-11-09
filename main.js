@@ -105,7 +105,9 @@ for( let i=0; i<posts.length; i++){
         console.log(this) 
         likeBtn.classList.toggle("like-button--liked") 
         const likedId=this.getAttribute("data-postid")
-        const postLikes= document.querySelector(`like-counter-${post.id}`)
+        const postLikes= document.querySelector(`#like-counter-${post.id}`)
+        postLikes.innerHTML=Number(postLikes.innerHTML)+1
+        idArray.push(likedId)
         console.log(idArray)
     })
     
