@@ -94,13 +94,10 @@ for( let i=0; i<posts.length; i++){
     //media
     postList.querySelector(".post__image").innerHTML= `<img src="${post.media}" alt="">`
     //likes
-    postList.querySelector(".likes__cta").innerHTML=`
-        <a class="like-button  js-like-button"  data-postid="${post.id}">
-        <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
-        <span class="like-button__label">Mi Piace</span>
-        </a>`
+    postList.querySelector(".js-like-button").setAttribute('data-postid', post.id)
     postList.querySelector(".js-likes-counter").innerHTML= post.likes
     postList.querySelector(".js-likes-counter").id=`like-counter-${post.id}`
+    
     const likeBtn= postList.querySelector(".likes__cta")
     const liked= postList.querySelector("a")
     const likedId=liked.getAttribute("data-postid")
